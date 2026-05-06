@@ -1,0 +1,37 @@
+register: POST
+
+http://localhost:8081/api/users/register
+
+{
+  "name": "Ana",
+  "lastname": "Torres",
+  "email": "ana@smartlogix.cl",
+  "password": "123456",
+  "phone": "+56912345678",
+  "adress": "Santiago, Chile"
+}
+
+
+------------------------------------------------------------
+
+
+login: POST
+
+http://localhost:8081/api/users/login
+
+{
+  "email": "ana@smartlogix.cl",
+  "password": "123456"
+}
+
+
+-------------------------------------------------------------
+//Se deben hacer logins e ir fijandose en el contador de intentos, si se incrementa es porque
+se sigue usando la misma instancia
+
+probar singleton: GET
+
+http://localhost:8081/api/users/singleton-test
+
+
+
