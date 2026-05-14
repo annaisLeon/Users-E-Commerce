@@ -8,9 +8,8 @@ http://localhost:8081/api/users/register
   "email": "ana@smartlogix.cl",
   "password": "123456",
   "phone": "+56912345678",
-  "adress": "Santiago, Chile"
+  "address": "Santiago, Chile"
 }
-
 
 ------------------------------------------------------------
 
@@ -26,12 +25,38 @@ http://localhost:8081/api/users/login
 
 
 -------------------------------------------------------------
-//Se deben hacer logins e ir fijandose en el contador de intentos, si se incrementa es porque
-se sigue usando la misma instancia
-
-probar singleton: GET
-
-http://localhost:8081/api/users/singleton-test
 
 
+Prueba /me 
+
+GET: http://localhost:8081/api/users/me
+
+Header:
+
+Authorization: Bearer TOKEN DEL USUARIO
+
+
+--------------------------------------------------------------
+
+PRUEBAS singleton
+
+GET: http://localhost:8081/api/users/session-info
+
+Header:
+
+Authorization: Bearer TOKEN DEL USUARIO
+
+si se llama varias veces el hash debe mantenerse igual mientras la app siga corriendo,
+si es así se demuestra que se usa la misma instancia.
+
+
+--------------------------------------------------------------
+
+
+Logout
+
+POST: http://localhost:8081/api/users/logout 
+
+si hacemos la prueba /me luego de usar logout, ya decir Unautgorized, si lo hace
+se demuestra que ya no esta la sesión activa en SessionManager
 
